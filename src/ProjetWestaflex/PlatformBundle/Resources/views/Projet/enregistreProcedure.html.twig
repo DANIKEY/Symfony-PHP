@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="/ProjetWestaflex/web/css/styleProcedure.css" type="text/css" />
+   <link rel="stylesheet" href="/ProjetWestaflex/web/css/styleFooter.css" type="text/css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1"> 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="mySidenav" class="sidenav">
+  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  	<a  class="active" href="{{ path('projet_westaflex_platform_enregistre_procedure') }}">Enregistrer procédure</a>
+  	<a href="{{ path('projet_westaflex_platform_selection_procedure') }}">Sélection procédure</a>
+  	<a href="{{ path('projet_westaflex_platform_statistiques') }}">Statistiques</a>
+  	<a href="{{ path('projet_westaflex_platform_liste_procedures') }}">Liste procédures</a>
+	<a href="{{ path('logout') }}">Déconnexion</a>
+</div>
+<div id="entete" class="header">
+  <a id="lien" href="http://groupe-oec.fr/campus/" class="logo">Contrôle d'étanchéitéV2</a>
+  <div class="header-right">
+     
+       <div id="main">
+  		<span style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776; Menu</span>
+	</div>
+
+  </div>
+</div>
+
+<div id="page">
+     
+  <div class="well">
+   {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+  {{ form_errors(form) }}
+
+
+  <div class="form-group">
+
+
+
+    {{ form_label(form.client, "Client", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+
+    {{ form_errors(form.client) }}
+
+
+    <div class="col-sm-10">
+
+      {{ form_widget(form.client, {'attr': {'class': 'form-control'}}) }}
+
+    </div>
+
+  </div>
+
+ 
+ <div class="form-group">
+
+
+
+    {{ form_label(form.pression, "Pression", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+
+    {{ form_errors(form.pression) }}
+
+
+    <div class="col-sm-10">
+
+      {{ form_widget(form.pression, {'attr': {'class': 'form-control'}}) }}
+
+    </div>
+
+  </div>
+
+  <div class="form-group">
+
+
+
+    {{ form_label(form.duree, "Durée", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+
+    {{ form_errors(form.duree) }}
+
+
+    <div class="col-sm-10">
+
+      {{ form_widget(form.duree, {'attr': {'class': 'form-control'}}) }}
+
+    </div>
+
+  </div>
+
+  <div class="form-group">
+
+
+
+    {{ form_label(form.marge, "Marge", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+
+    {{ form_errors(form.marge) }}
+
+
+    <div class="col-sm-10">
+
+      {{ form_widget(form.marge, {'attr': {'class': 'form-control'}}) }}
+
+    </div>
+
+  </div>
+
+ <div class="form-group">
+
+
+
+    {{ form_label(form.diametre, "Diamètre", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+
+    {{ form_errors(form.diametre) }}
+
+
+    <div class="col-sm-10">
+
+      {{ form_widget(form.diametre, {'attr': {'class': 'form-control'}}) }}
+
+    </div>
+
+  </div>
+
+ <div class="form-group">
+
+
+
+    {{ form_label(form.reference, "Référence tube", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+
+
+    {{ form_errors(form.reference) }}
+
+
+   <div class="col-sm-10">
+
+      {{ form_widget(form.reference, {'attr': {'class': 'form-control'}}) }}
+
+    </div>
+
+  </div>
+
+  <div class="btn pull-right">
+               <button class="btn btn-danger"  type="reset" >Remise à zéro</button>
+
+  {{ form_widget(form.save,  {'label': 'Enregistrer' ,'attr': {'class': 'btn btn-success'} }) }}
+
+  </div>  
+  
+  {{ form_rest(form) }}
+
+
+  {{ form_end(form) }}
+</div>
+
+ 
+
+  </div>
+</div>
+
+<div class="footer">
+    <div class="footerDesign">
+       <a href="http://groupe-oec.fr/campus/" class="logo">Campus OZANAM</a>
+       <br><br>
+       <hr>
+        <a href="{{ path('projet_westaflex_platform_enregistre_procedure') }}">Enregistrer procédure</a>
+  	<a href="{{ path('projet_westaflex_platform_selection_procedure') }}">Sélection procédure</a>
+  	<a href="{{ path('projet_westaflex_platform_statistiques') }}">Statistiques</a>
+  	<a href="{{ path('projet_westaflex_platform_liste_procedures') }}">Liste procédures</a>
+    </div>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "330px";
+    document.getElementById("page").style.marginLeft = "250px";
+    document.getElementById("entete").style.backgroundColor = "white";
+    document.getElementById("lien").style.backgroundColor  = "white";
+    document.getElementById("lien").style.color = "#036873";
+    document.getElementById("lien").onmouseover = function() {
+    this.style.backgroundColor = "white";
+}
+
+
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("page").style.marginLeft= "auto";
+    document.getElementById("entete").style.backgroundColor = "#036873";
+    document.getElementById("lien").style.color = "lightblue";
+    document.getElementById("lien").style.backgroundColor = "#036873";
+    document.getElementById("lien").onmouseover = function() {
+    this.style.backgroundColor = "#036873";
+}
+
+}
+</script>
+
+</body>
+</html>
+

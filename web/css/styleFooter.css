@@ -1,0 +1,36 @@
+.footer {
+   
+   margin-top: 250px;
+   background-image: url('img/footer_.png');
+   padding: 10px;
+   color: white;
+   overflow: hidden;
+
+}
+
+.footerDesign{
+
+ max-width: 1000px;
+ margin: auto;
+ background-image: url('img/footer_.png');
+}
+
+.footerDesign a{
+  float: left;
+  color: #036873;
+  text-align: center;
+  padding: 10px;
+  text-decoration: none; /* hide line a*/
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+  background-image: url('img/footer_.png');
+}
+.footerDesign a.logo{
+  font-size: 15px;
+  font-weight: bold;
+}
+.footerDesign a:hover{
+   background-image: url('img/footer_.png');
+  color: white;
+}

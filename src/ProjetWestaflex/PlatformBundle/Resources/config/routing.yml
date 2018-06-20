@@ -1,0 +1,27 @@
+projet_westaflex_platform_enregistre_procedure:
+    path: /
+    defaults: { _controller: ProjetWestaflexPlatformBundle:Projet:enregistre }
+
+projet_westaflex_platform_statistiques:
+    path: /statistique
+    defaults: { _controller: ProjetWestaflexPlatformBundle:Projet:stats }
+
+projet_westaflex_platform_liste_procedures:
+    path: /listesProcedures
+    defaults: { _controller: ProjetWestaflexPlatformBundle:Projet:listesprocedures }
+
+projet_westaflex_platform_delete_procedure:
+    path: /deleteProcedure/{id}
+    defaults: { _controller: ProjetWestaflexPlatformBundle:Projet:deleteprocedure }
+
+projet_westaflex_platform_selection_procedure: 
+    path: /selectionProcedure
+    defaults: { _controller: ProjetWestaflexPlatformBundle:Projet:selectionprocedure }
+
+projet_westaflex_platform_update_procedure:
+    path: /updateProcedure/{id}
+    defaults: { _controller: ProjetWestaflexPlatformBundle:Projet:updateprocedure }
+
+projet_westaflex_platform_affiche_procedure:
+    path: /afficheProcedureId/{id}
+    defaults: { _controller: ProjetWestaflexPlatformBundle:Projet:afficheprocedure }

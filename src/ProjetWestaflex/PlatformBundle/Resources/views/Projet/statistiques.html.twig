@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="/ProjetWestaflex/web/css/styleProcedure.css" type="text/css" />
+   <link rel="stylesheet" href="/ProjetWestaflex/web/css/recherche_box.css" type="text/css" />
+   <link rel="stylesheet" href="/ProjetWestaflex/web/css/styleFooter.css" type="text/css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1"> 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#RechercheForm").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#MaTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</head>
+
+<body>
+
+<div id="mySidenav" class="sidenav">
+  	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  	<a href="{{ path('projet_westaflex_platform_enregistre_procedure') }}">Enregistrer procédure</a>
+        <a href="{{ path('projet_westaflex_platform_selection_procedure') }}">Sélection procédure</a>
+  	<a class="active" href="{{ path('projet_westaflex_platform_statistiques') }}">Statistiques</a>
+  	<a href="{{ path('projet_westaflex_platform_liste_procedures') }}">Liste procédures</a>
+	<a href="{{ path('logout') }}">Déconnexion</a>
+</div>
+<div id="entete" class="header">
+  <a id="lien" href="http://groupe-oec.fr/campus/" class="logo">Contrôle d'étanchéitéV2</a>
+  <div class="header-right">
+     
+       <div id="main">
+  		<span style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776; Menu</span>
+	</div>
+
+  </div>
+</div>
+
+<div id="conteneur" class='container'>
+<input type="text" id="RechercheForm" placeholder="Recherche...">
+
+<table id="Matable" class='table table-dark table-striped'>
+<thead>
+  <tr>
+    <td>Client</td>
+    <td>Référence tube</td>
+    <td>Nombre de tube défectueux</td>
+    <td>Nombre de tube sans défaut</td>
+  </tr>
+</thead>
+<tbody id="MaTable">
+{% for donnees in stats  %}
+   <tr>
+     <td>{{donnees.client}}</td>
+     <td>{{donnees.reference}}</td>
+     <td>{{donnees.tuyauxDefectueux}}</td>
+     <td>{{donnees.tuyauxNonDefectueux}}</td>
+
+    
+   </tr>
+{% endfor %}
+</tbody>
+</table>
+
+</div>
+<div class="footer">
+    <div class="footerDesign">
+       <a href="http://groupe-oec.fr/campus/" class="logo">Campus OZANAM</a>
+       <br><br>
+       <hr>
+        <a href="{{ path('projet_westaflex_platform_enregistre_procedure') }}">Enregistrer procédure</a>
+  	<a href="{{ path('projet_westaflex_platform_selection_procedure') }}">Sélection procédure</a>
+  	<a href="{{ path('projet_westaflex_platform_statistiques') }}">Statistiques</a>
+  	<a href="{{ path('projet_westaflex_platform_liste_procedures') }}">Liste procédures</a>
+    </div>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "330px";
+    document.getElementById("conteneur").style.marginLeft = "0px";
+    document.getElementById("entete").style.backgroundColor = "white";
+    document.getElementById("conteneur").style.width = "75%";
+    document.getElementById("lien").style.backgroundColor  = "white";
+    document.getElementById("lien").style.color = "#036873";
+    document.getElementById("lien").onmouseover = function() {
+    this.style.backgroundColor = "white";
+}
+
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("conteneur").style.marginLeft= "auto";
+    document.getElementById('conteneur').style.width= '90%';
+    document.getElementById("entete").style.backgroundColor = "#036873";
+    document.getElementById("lien").style.color = "lightblue";
+    document.getElementById("lien").style.backgroundColor = "#036873";
+    document.getElementById("lien").onmouseover = function() {
+    this.style.backgroundColor = "#036873";
+}
+
+}
+</script>
+
+</body>
+</html>
+
